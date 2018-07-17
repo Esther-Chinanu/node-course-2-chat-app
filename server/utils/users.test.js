@@ -12,7 +12,7 @@ describe('Users', () => {
             room: 'Node Course'
         },   {
             id: '2',
-            name: 'Jane',
+            name: 'Jen',
             room: 'React Course'
         },  {
             id: '3',
@@ -31,7 +31,7 @@ describe('Users', () => {
         
         var resUser = users.addUser(user.id, user.name, user.room);
 
-        expect(users.users).toEqual(resUser);
+        expect(users.users).toEqual([User]);
     });
 
     it('should remove a user', () => {
@@ -59,7 +59,7 @@ describe('Users', () => {
 
     it('should not find a user', () => {
         var userId = '99';
-        var user = users.getUserList(userId);
+        var user = users.getUser(userId);
 
         expect(user).toNotExist();
     });
@@ -67,11 +67,11 @@ describe('Users', () => {
     it('should return names for node course', () => {
         var userList = users.getUserList('Node Course');
 
-        expect(userList).toEqual(['Mike','Juliet']);
+        expect(userList).toEqual(['Mike','Julie']);
     });
 
     it('should return names for react course', () => {
-        var userList = users.getUser('React Course');
+        var userList = users.getUserList('React Course');
 
         expect(userList).toEqual(['Jen']);
     });

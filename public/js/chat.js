@@ -33,7 +33,7 @@ socket.on('disconnect', function ()  {
     console.log('Disconnected from server');
 });
 
-socket.on('UpdateUserList', function (users) {
+socket.on('updateUserList', function (users) {
    var ol = jQuery('<ol></ol>');
 
    users.forEach(function (user) {
@@ -75,7 +75,6 @@ jQuery('#message-form').on('submit', function (e) {
     var messageTextbox = jQuery('[name=message]');
 
     socket.emit('createMessage', {
-        from: 'User',
         text: messageTextbox.val()
     }, function () {
         messageTextbox.val('')
